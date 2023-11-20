@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        div { border: 2px dashed black;
+            padding: .2em;
+            margin: .5em
+        }
+    </style>
+</head>
+<body>
+
+<div th:each="item : ${lunchItems}">
+  <p>Name of food: <span  th:text="${item.getName()}"></span></p>
+  <p># Cals: <span  th:text="${item.getCalories()}"></span></p>
+  <p>Region/Genre/Type: <span  th:text="${item.getType()}"></span></p>
+
+</div>
+
+</body>
+</html>
