@@ -22,6 +22,9 @@ public class Food {
     @Column
     private int calories;
 
+    @OneToOne
+    private Chef owner;
+
     public Food() {
     }
 
