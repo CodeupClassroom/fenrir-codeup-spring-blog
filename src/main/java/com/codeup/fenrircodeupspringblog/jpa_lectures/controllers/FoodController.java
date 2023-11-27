@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -37,6 +38,19 @@ public class FoodController {
 
     @PostMapping("/lunchOrder")
     public String createLunchItem(@ModelAttribute Food food) {
+        foodDataAccessObject.save(food);
+        return "redirect:/lunchTime";
+    }
+
+    @GetMapping("/lunch/{id}/edit")
+    public String editLunchForm(@PathVariable Long id, Model model) {
+        model.addAttribute("lunchItem", foodDataAccessObject.findById(id));
+
+        return "lunchEditForm";
+    }
+
+    @PostMapping("/lunchEdit")
+    public String editLunchItem(@ModelAttribute Food food) {
         foodDataAccessObject.save(food);
         return "redirect:/lunchTime";
     }

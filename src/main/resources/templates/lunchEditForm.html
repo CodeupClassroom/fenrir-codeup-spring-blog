@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lunch Edit</title>
+</head>
+<body>
+
+<form th:action="@{/lunchEdit}" th:method="post" th:object="${lunchItem}">
+  <input type="hidden" th:field="*{id}">
+  Name:
+  <input th:field="*{name}">
+  <br />
+  Type:
+  <input th:field="*{type}">
+  <br />
+  Calories:
+  <input th:field="*{calories}">
+  <br />
+  <input type="submit">
+</form>
+
+</body>
+</html>
