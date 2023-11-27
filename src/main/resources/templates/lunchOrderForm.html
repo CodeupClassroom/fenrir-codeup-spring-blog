@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lunch Order</title>
+</head>
+<body>
+
+<form th:action="@{/lunchOrder}" th:method="post" th:object="${lunchItem}">
+    Name:
+    <input th:field="*{name}">
+    <br />
+    Type:
+    <input th:field="*{type}">
+    <br />
+    Calories:
+    <input th:field="*{calories}">
+    <br />
+    <input type="submit">
+</form>
+
+</body>
+</html>
