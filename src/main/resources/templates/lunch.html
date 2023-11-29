@@ -13,6 +13,7 @@
     </style>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 <div th:each="item : ${lunchItems}">
   <p>Name of food: <span  th:text="${item.getName()}"></span></p>

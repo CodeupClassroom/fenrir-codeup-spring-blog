@@ -5,6 +5,7 @@
     <title>Lunch Edit</title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 <form th:action="@{/lunchEdit}" th:method="post" th:object="${lunchItem}">
   <input type="hidden" th:field="*{id}">

@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
 
 <form th:action="@{/posts/{id}/edit(id = ${post.id})}" th:method="post" th:object="${post}">
     <label for="title">Title:</label>

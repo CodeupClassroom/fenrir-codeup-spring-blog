@@ -5,6 +5,8 @@
     <title>All Posts</title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
 
 <div th:each="post : ${posts}">
     <h1 th:text="${post.title}"></h1>

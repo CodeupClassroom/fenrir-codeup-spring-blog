@@ -5,6 +5,7 @@
     <title>Lunch Order</title>
 </head>
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 <form th:action="@{/lunchOrder}" th:method="post" th:object="${lunchItem}">
     Name:

@@ -5,6 +5,7 @@ import com.codeup.fenrircodeupspringblog.models.User;
 import com.codeup.fenrircodeupspringblog.repositories.PostRepository;
 import com.codeup.fenrircodeupspringblog.repositories.UserRepository;
 import com.codeup.fenrircodeupspringblog.services.EmailService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +45,10 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post) {
-        User user = userDao.getReferenceById(1L);
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+
+        User user = userDao.getReferenceById(loggedInUser.getId());
 
         post.setUser(user);
 
